@@ -1143,6 +1143,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7040eed2aa76042a8b4022b50889b5d1, type: 3}
+--- !u!1001 &9044405658334442391
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 390653503724140414, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_Name
+      value: Terminal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.145
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7718539262188045935, guid: 0234f595b7f4743fca4cfad542d40d65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0234f595b7f4743fca4cfad542d40d65, type: 3}
 --- !u!1001 &9121352407578323600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1159,7 +1227,7 @@ PrefabInstance:
     - target: {fileID: 812761610453164338, guid: dbd0c0ca1c57e4e2a9310797b47b33be,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 812761610453164338, guid: dbd0c0ca1c57e4e2a9310797b47b33be,
         type: 3}
@@ -1169,7 +1237,7 @@ PrefabInstance:
     - target: {fileID: 812761610453164338, guid: dbd0c0ca1c57e4e2a9310797b47b33be,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 812761610453164338, guid: dbd0c0ca1c57e4e2a9310797b47b33be,
         type: 3}
@@ -1179,7 +1247,7 @@ PrefabInstance:
     - target: {fileID: 812761610453164338, guid: dbd0c0ca1c57e4e2a9310797b47b33be,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.38268343
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 812761610453164338, guid: dbd0c0ca1c57e4e2a9310797b47b33be,
         type: 3}
@@ -1194,7 +1262,7 @@ PrefabInstance:
     - target: {fileID: 812761610453164338, guid: dbd0c0ca1c57e4e2a9310797b47b33be,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 812761610453164338, guid: dbd0c0ca1c57e4e2a9310797b47b33be,
         type: 3}
@@ -1219,6 +1287,7 @@ SceneRoots:
   - {fileID: 1057368699}
   - {fileID: 377443941}
   - {fileID: 9121352407578323600}
+  - {fileID: 9044405658334442391}
   - {fileID: 2071487783}
   - {fileID: 1405755791}
   - {fileID: 636745241}
