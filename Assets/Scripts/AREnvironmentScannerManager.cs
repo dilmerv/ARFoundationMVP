@@ -6,7 +6,7 @@ using LearnXR.Core;
 public class AREnvironmentScannerManager : Singleton<AREnvironmentScannerManager>
 {
    [SerializeField] private GameObject reticlePrefab;
-   //TODO add the meshes and planes layers 
+   
    [SerializeField] private LayerMask layersToInclude;
 
    public UnityEvent<Vector3> onPlaceableArea = new ();
@@ -19,7 +19,7 @@ public class AREnvironmentScannerManager : Singleton<AREnvironmentScannerManager
 
    private Camera mainCamera;
 
-   // plane or meshes informations
+   // plane or meshes information
    private ARReticleInfo reticleInfo;
 
    private void Start()

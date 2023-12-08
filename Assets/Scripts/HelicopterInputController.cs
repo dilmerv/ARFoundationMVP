@@ -55,19 +55,4 @@ public class HelicopterInputController : Singleton<HelicopterInputController>
         Vector3 liftForce = transform.up * ((liftAmount - descendAmount) * altitudeForce);
         physics.AddForce(liftForce);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
