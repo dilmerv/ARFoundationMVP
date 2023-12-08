@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 2867797760738414635}
   - component: {fileID: 7649860370970330070}
   - component: {fileID: 3963411907653029791}
+  - component: {fileID: 1528144974136023795}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -747,6 +748,39 @@ MonoBehaviour:
   rotationAmount: 1
   altitudeForce: 12
   <IsGrounded>k__BackingField: 0
+--- !u!114 &1528144974136023795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160226985632165104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe73ee3bb9de453589a421f57b073c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkMissionStateFrequency: 1
+  allMissions:
+  - {fileID: 11400000, guid: 344cb6378f9c14e2a9023c2dfd7f70cf, type: 2}
+  - {fileID: 11400000, guid: 6fa21e5e975c845608ea1164f7b2a113, type: 2}
+  - {fileID: 11400000, guid: 39365e9fecb794284933483636fefdfc, type: 2}
+  currentHelicopterMission: {fileID: 0}
+  survivorsPrefabs:
+  - {fileID: 2059730086030986852, guid: e9a7d7557435b445ca64fc5497b90205, type: 3}
+  - {fileID: 2059730086030986852, guid: e9a7d7557435b445ca64fc5497b90205, type: 3}
+  onMissionInfoLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+  onSurvivorsPlaced:
+    m_PersistentCalls:
+      m_Calls: []
+  onMissionFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onMissionCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1170125315275395354
 GameObject:
   m_ObjectHideFlags: 0

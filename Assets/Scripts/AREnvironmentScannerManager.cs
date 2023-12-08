@@ -1,10 +1,9 @@
-using System;
 using Core;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using LearnXR.Core;
 
-public class AREnvironmentScannerManager : MonoBehaviour
+public class AREnvironmentScannerManager : Singleton<AREnvironmentScannerManager>
 {
    [SerializeField] private GameObject reticlePrefab;
    //TODO add the meshes and planes layers 
@@ -54,8 +53,20 @@ public class AREnvironmentScannerManager : MonoBehaviour
          
          reticleInfo.UpdateInfo($"Angle: {areaAngle}", $"Magnitude: {hitMagnitude}",
             $"Distance: {distanceFromterminal}");
-         
-         //TODO section will be to determine if we can place survivors
+
+         var currentMissionState = HelicopterMissionManager.Instance.currentHelicopterMission;
+         if (areaAngle >= currentMissionState.minAngle &&
+             areaAngle <= currentMissionState.maxAngle &&
+             hitMagnitude >= currentMissionState.minAreaSize &&
+             distanceFromterminal >= currentMissionState.minDistanceFromTerminal)
+         {
+            reticleRenderer.material.color = reticleInfo.ReticleValidColor;
+            onPlaceableArea.Invoke(raycastHit.point);
+         }
+         else
+         {
+            reticleRenderer.material.color = reticleInfo.ReticleInValidColor;
+         }
       }
       else
       {

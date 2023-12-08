@@ -6,4 +6,12 @@ namespace Core
         Y,
         Z
     }
+
+    public enum MissionRequirements
+    {
+        NoMet,
+        AllMet,
+        RescuedSurvivorsPastTime,
+        NobodyRescuedPastTime
+    }
 }
