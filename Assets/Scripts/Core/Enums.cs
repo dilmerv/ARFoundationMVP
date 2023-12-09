@@ -14,4 +14,15 @@ namespace Core
         RescuedSurvivorsPastTime,
         NobodyRescuedPastTime
     }
+
+    public enum GameMode
+    {
+        Idle,
+        Scanning,
+        PlacingInProgress,
+        PlacingCompleted,
+        Playing,
+        Completed,
+        Failed
+    }
 }

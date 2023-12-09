@@ -11,10 +11,7 @@ public class HelicopterRotor : MonoBehaviour
 
     private bool rotorRunning;
     
-    private void Start()
-    {
-        //Binding to a onHelicopterLifted
-    }
+    private void Start() => HelicopterLogicManager.Instance.onHelicopterLifted.AddListener(RotorStateChanged);
 
     private void Update() => ApplyRotation();
 

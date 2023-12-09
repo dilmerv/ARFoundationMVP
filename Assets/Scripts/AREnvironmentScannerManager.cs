@@ -35,7 +35,8 @@ public class AREnvironmentScannerManager : Singleton<AREnvironmentScannerManager
 
    private void Update()
    {
-      //TODO we need to check and make sure the game is playing before we continue
+      if (GameManager.Instance.currentGameMode != GameMode.Scanning) return;
+      
       Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
 
       if (Physics.Raycast(ray, out RaycastHit raycastHit, float.PositiveInfinity, layersToInclude))

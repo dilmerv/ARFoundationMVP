@@ -1,3 +1,4 @@
+using Core;
 using LearnXR.Core;
 using TMPro;
 using UnityEngine;
@@ -72,7 +73,7 @@ public class GameUIManager : Singleton<GameUIManager>
         failedStepCompleted.onClick.AddListener(() =>
         {
             goalStep.gameObject.SetActive(true);
-            failedStep.gameObject.SetActive(true);
+            failedStep.gameObject.SetActive(false);
             onFailedStepDismissed.Invoke();
         });
         
@@ -87,17 +88,36 @@ public class GameUIManager : Singleton<GameUIManager>
             firstStep.gameObject.SetActive(true);
         });
         
-        //TODO HelicopterMissionManager onMissionCompleted and OnMissionFailed
+        HelicopterMissionManager.Instance.onMissionCompleted.AddListener(() =>
+        {
+            wonStep.gameObject.SetActive(true);
+            if(HelicopterMissionManager.Instance.AllLevelsBeaten)
+                wonStepCompleted.gameObject.SetActive(false);
+        });
+        
+        HelicopterMissionManager.Instance.onMissionFailed.AddListener(() =>
+        {
+            failedStep.gameObject.SetActive(true);
+        });
     }
 
-    public void UpdateStats()
+    private void UpdateStats(HelicopterMission mission)
     {
-        //TODO implement showing stats on the goal screen
+        missionNumber.text = $"{mission.missionIdentifier + 1}";
+        elapsedTime.text = $"Elapsed Time: {mission.timeElapsed}";
+        survivor.text = $"Survivors: {mission.numberOfSurvivorsRescued} out of {mission.numberOfSurvivors}";
+        maxTime.text = $"Time Limit: {mission.secondsAllowed}";
+        minAngle.text = $"Min Angle: {mission.minAngle}";
+        maxAngle.text = $"Max Angle: {mission.maxAngle}";
     }
-
 
     private void Update()
     {
-        //TODO display elapsed time for the current level
+        if (GameManager.Instance.currentGameMode == GameMode.Playing)
+        {
+            var mission = HelicopterMissionManager.Instance.currentHelicopterMission;
+            mission.timeElapsed += Time.deltaTime;
+            UpdateStats(mission);
+        }
     }
 }

@@ -26,8 +26,10 @@ public class HelicopterInputController : Singleton<HelicopterInputController>
         inputActions.Enable();
         physics = GetComponent<Rigidbody>();
         
-        //TODO - implement this later
-        //is grounded or not
+        HelicopterLogicManager.Instance.onHelicopterLifted.AddListener((lifted) =>
+        {
+            IsGrounded = !lifted;
+        });
     }
 
     private void Update()
