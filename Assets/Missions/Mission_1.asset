@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Mission_1
   m_EditorClassIdentifier: 
   missionIdentifier: 0
-  numberOfSurvivors: 2
+  numberOfSurvivors: 10
   secondsAllowed: 60
   minAngle: 0
   maxAngle: 45
   minAreaSize: 2.5
   minDistanceFromTerminal: 2
   numberOfSurvivorsRescued: 0
-  numberOfSurvivorsPlaced: 0
-  timeElapsed: 0
+  numberOfSurvivorsPlaced: 100
+  timeElapsed: 13.75517

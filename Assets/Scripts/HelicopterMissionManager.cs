@@ -7,6 +7,10 @@ using Random = UnityEngine.Random;
 
 public class HelicopterMissionManager : Singleton<HelicopterMissionManager>
 {
+    [SerializeField] private float survivorPlacementDelay = 1.0f;
+
+    [SerializeField] private float survivorPlacementOffset = 0.5f;
+    
     [SerializeField] private float checkMissionStateFrequency = 1.0f;
     
     [SerializeField] private HelicopterMission[] allMissions;
@@ -43,12 +47,34 @@ public class HelicopterMissionManager : Singleton<HelicopterMissionManager>
             LoadMissionInfo(restore: false);
         });
         
-        AREnvironmentScannerManager.Instance.onPlaceableArea.AddListener(PlaceSurvivors);
+        AREnvironmentScannerManager.Instance.onPlaceableArea.AddListener((worldPosition) =>
+        {
+            if (GameManager.Instance.currentGameMode == GameMode.Scanning)
+            {
+                StartCoroutine(PlaceSurvivors(worldPosition));
+                GameManager.Instance.currentGameMode = GameMode.PlacingInProgress;
+            }
+        });
     }
-
-    private void Update()
+    
+    private IEnumerator PlaceSurvivors(Vector3 worldPosition)
     {
-        //TODO add a check to Playing game mode before we increment the elapsed time
+        int placed = currentHelicopterMission.numberOfSurvivorsPlaced;
+        if (placed >= currentHelicopterMission.numberOfSurvivors) yield return null;
+
+        while (currentHelicopterMission.numberOfSurvivorsPlaced < currentHelicopterMission.numberOfSurvivors)
+        {
+            var survivorPrefab = survivorsPrefabs[Random.Range(0, survivorsPrefabs.Length)];
+            var worldPositionWithOffset = new Vector3(worldPosition.x,
+                worldPosition.y + (survivorPlacementOffset * currentHelicopterMission.numberOfSurvivorsPlaced),
+                worldPosition.z);
+            Instantiate(survivorPrefab, worldPositionWithOffset, Quaternion.identity);
+            currentHelicopterMission.numberOfSurvivorsPlaced++;
+            yield return new WaitForSeconds(survivorPlacementDelay);
+        }
+
+        GameManager.Instance.currentGameMode = GameMode.PlacingCompleted;
+        onSurvivorsPlaced.Invoke();
     }
 
     private void LoadMissionInfo(bool restore = false)
@@ -119,22 +145,4 @@ public class HelicopterMissionManager : Singleton<HelicopterMissionManager>
     }
     
     #endregion
-
-    private void PlaceSurvivors(Vector3 worldPosition)
-    {
-        int placed = currentHelicopterMission.numberOfSurvivorsPlaced;
-        if (placed >= currentHelicopterMission.numberOfSurvivors) return;
-
-        int numberOfPlacedSurvivors = 0;
-        
-        for (int i = 0; i < currentHelicopterMission.numberOfSurvivors; i++)
-        {
-            var survivorPrefab = survivorsPrefabs[Random.Range(0, survivorsPrefabs.Length)];
-            Instantiate(survivorPrefab, worldPosition, Quaternion.identity);
-            numberOfPlacedSurvivors++;
-        }
-
-        currentHelicopterMission.numberOfSurvivorsPlaced = numberOfPlacedSurvivors;
-        onSurvivorsPlaced.Invoke();
-    }
 }
