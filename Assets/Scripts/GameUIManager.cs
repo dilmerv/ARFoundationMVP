@@ -104,7 +104,7 @@ public class GameUIManager : Singleton<GameUIManager>
     private void UpdateStats(HelicopterMission mission)
     {
         missionNumber.text = $"{mission.missionIdentifier + 1}";
-        elapsedTime.text = $"Elapsed Time: {mission.timeElapsed}";
+        elapsedTime.text = $"Elapsed Time: {mission.timeElapsed.ToString("F")}";
         survivor.text = $"Survivors: {mission.numberOfSurvivorsRescued} out of {mission.numberOfSurvivors}";
         maxTime.text = $"Time Limit: {mission.secondsAllowed}";
         minAngle.text = $"Min Angle: {mission.minAngle}";

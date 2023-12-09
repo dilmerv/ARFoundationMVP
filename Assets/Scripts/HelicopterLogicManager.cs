@@ -28,10 +28,15 @@ public class HelicopterLogicManager : Singleton<HelicopterLogicManager>
     
     private Vector3 playerInitialPosition = Vector3.zero;
 
+    private Rigidbody physics;
+    
+    
     private void Start()
     {
         helicopterCollider = GetComponent<Collider>();
-
+        
+        physics = GetComponent<Rigidbody>();
+        
         playerInitialPosition = transform.position;
 
         onHelicopterLifted.Invoke(!Landed);
@@ -96,6 +101,8 @@ public class HelicopterLogicManager : Singleton<HelicopterLogicManager>
                 if (Landed)
                 {
                     Landed = false;
+                    physics.velocity = Vector3.zero;
+                    physics.angularVelocity = Vector3.zero;
                     onHelicopterLifted.Invoke(true);
                 }
             }
